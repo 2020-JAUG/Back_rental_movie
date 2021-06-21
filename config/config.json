@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "1234abcd",
-    "database": "ExplorerMovieDB",
+    "database": "rental_movie",
     "host": "localhost",
     "port":"3306",
     "dialect": "mysql"
