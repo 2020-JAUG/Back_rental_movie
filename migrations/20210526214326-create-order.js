@@ -20,8 +20,18 @@ module.exports = {
       movieId: {
         type: Sequelize.INTEGER
       },
+      movieTitle: {
+        type: Sequelize.STRING,
+      },
+      moviePoster: {
+        type: Sequelize.STRING,
+      },
       rentalDate: {
         type: Sequelize.DATE
+      },
+      isActive: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
       },
       returnDate: {
         type: Sequelize.DATE

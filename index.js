@@ -2,13 +2,16 @@ const express = require("express");
 const db = require("./db.js");
 const app = express();
 const router = require("./router");
-const port = 3000;
+const port = 3001;
+const cors = require('cors');
 
 
 
 //Middleware
+app.use(cors());
 app.use(express.json());
 app.use(router);
+
 
 //Iniciamos el servidor
 
