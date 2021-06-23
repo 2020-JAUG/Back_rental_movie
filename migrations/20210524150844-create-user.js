@@ -8,35 +8,53 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      nombre: {
-        type: Sequelize.STRING
+      name: {
+        type: Sequelize.STRING,
+        require: true
+      },
+      lastName: {
+        type: Sequelize.STRING,
+        require: true
+      },
+      lastName2: {
+        type: Sequelize.STRING,
+        require: true
       },
       password: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        require: true
       },
-      isAdmin: {
-        type: Sequelize.BOOLEAN
+      token: {
+        type: Sequelize.STRING,
+        defaultValue: ""
       },
-      apellido1: {
-        type: Sequelize.STRING
+      isActive: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
       },
-      apellido2: {
-        type: Sequelize.STRING
+      dateOfBirth: {
+        type: Sequelize.DATE,
+        require: true
       },
-      edad: {
-        type: Sequelize.INTEGER
+      city: {
+        type: Sequelize.STRING,
+        require: true
       },
-      direccion: {
-        type: Sequelize.STRING
+      address: {
+        type: Sequelize.STRING,
+        require: true
       },
       cp: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        require: true
       },
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        require: true
       },
-      telefono: {
-        type: Sequelize.STRING
+      phone: {
+        type: Sequelize.STRING,
+        require: true
       },
       createdAt: {
         allowNull: false,
