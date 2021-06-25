@@ -36,19 +36,10 @@ class Users {
 
     return usuario;
     }
-    // async createUser(body) {
-
-    //     let password = body.password
-    //     let passwordHashed = bcrypt.hashSync(password,10)
-
-    //     body.password = passwordHashed
-    //     return User.create(body);
-    // }
-
 
     //Para activar la cuenta de usuario. Recibiendo el token y id
     async updateActive(token) {
-                console.log('token', token);
+
             let user = await User.findOne({ where: { token } });
             console.log(user, 'usuario');
             let usuario = await User.update(

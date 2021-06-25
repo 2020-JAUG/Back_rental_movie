@@ -25,6 +25,16 @@ router.get("/upcoming", async (req, res) => {
     }
 });
 
+router.get("/popular", async (req, res) => {
+    try {
+        res.json(await moviesControllers.popular());
+    } catch (error) {
+        return res.status(500).json ({
+            message: error.message
+        });
+    }
+});
+
 router.get("/:id", async(req, res) => {
     try {
         let id = req.params.id;

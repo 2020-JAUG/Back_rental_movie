@@ -10,25 +10,26 @@ class LoginController {
 
         let user = await userController.userEmail(emailCheck);
 
-        let password = user.password;
-
-        let verificar = await bcrypt.compare(passwordCheck, password);
-
-        // if(!compare !== emailcheck) {
-        //     return new Error("Los campos no coindiden")
-        // }
-
-        if(!verificar) {
-            return new Error("El password y el email no coinciden");
+        if(user == null) {
+            throw new Error("Wrong user or password");
         }
 
-        let payload = {
-            userId: user.id,
-            createdAt: new Date,
-            isAdmin: user.isAdmin
-        };
+        let password = user.password;
 
-        return jwt.sign(payload, secret);
+        let verificar = await bcrypt.compare(passwordCheck,password);
+
+        if(!verificar) {
+            throw new Error("Wrong user or password");
+
+        } else {
+
+            let payload = {
+                userId: user.id,
+                createdAt: new Date,
+                isAdmin: user.isAdmin
+            };
+            return jwt.sign(payload, secret);
+        }
     }
 }
 

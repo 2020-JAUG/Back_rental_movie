@@ -3,12 +3,18 @@ const axios = require("axios");
 class Pelicula{
 
     async findTopRated(){
+
         let res = await axios.get("https://api.themoviedb.org/3/movie/top_rated?api_key=79a61f5dc13e3e9e4834fadbf4f326c7&language=en-US&page=3");
         return res.data;
     }
 
     async upComing(){
         let res = await axios.get("https://api.themoviedb.org/3/movie/upcoming?api_key=79a61f5dc13e3e9e4834fadbf4f326c7&language=en-US&page=3");
+        return res.data;
+    }
+
+    async popular(){
+        let res = await axios.get("https://api.themoviedb.org/3/movie/popular?api_key=79a61f5dc13e3e9e4834fadbf4f326c7&language=en-US&page=3");
         return res.data;
     }
 
