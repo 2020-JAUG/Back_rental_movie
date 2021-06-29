@@ -76,16 +76,59 @@ class Users {
         return User.update(
             //DAtos que cambiamos
             {
-                edad: body.edad,
-                direccion: body.direccion,
+                name: body.name,
+                address: body.address,
                 cp: body.cp,
                 email: body.email,
-                telefono: body.telefono
+                phone: body.phone
             },
             //Donde
             { where: {id: body.id}}
-
         )
+    }
+
+
+    async modifyPassword(body) {
+
+        // let user = await User.findByPk(body.user);
+        let user = await User.findByPk(body.userId);
+        let oldPassword = body.oldPassword;
+
+        let password = user.password;
+
+        let verify = await bcrypt.compare(oldPassword, password);
+
+        if(!verify){
+         throw new Error('Wrong user or password');
+        }
+
+        let newPassword = await bcrypt.hash( body.newPassword, 10 );
+
+        let updatepassword = await User.update(
+            {password: newPassword},
+            //Donde...
+            {where: {id: body.userId}}
+        )
+
+        return User.findOne({
+            where: {id : body.userId}
+        });
+
+        // return User.findByIdAndUpdate(
+        //     {
+        //         id: body.user,
+        //         password: newPassword
+        //     },
+
+        //     { where: {id: body.id}}
+        // )
+
+    }
+
+    async findUser (id) {
+        return User.findOne(
+            {where: {id: id}}
+        );
     }
 
     async findByToken(token) {
