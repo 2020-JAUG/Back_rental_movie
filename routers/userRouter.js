@@ -26,10 +26,21 @@ router.get("/:id", admin, async(req, res) => {
     }
 });
 
-router.put("/", authenticate, async(req, res) => {
+router.put("/updateuser", authenticate, async(req, res) => {
     try {
         const body = req.body;
         res.json( await usersControllers.modifyUser(body));
+    } catch (error) {
+        return res.status(500).json({
+            message: error.message
+        });
+    }
+});
+
+router.put("/updatepassword", authenticate, async(req, res) => {
+    try {
+        const body = req.body;
+        res.json(await usersControllers.modifyPassword(body));
     } catch (error) {
         return res.status(500).json({
             message: error.message
