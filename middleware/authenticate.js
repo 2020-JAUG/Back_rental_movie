@@ -9,6 +9,7 @@ const authenticate = (req, res, next) => {
             return new Error ("No tienes token");
         }
 
+        //Aqui obtenemos el token
         let token = req.headers.authorization.split(" ")[1];
         let auth = jwt.verify(token, secret);
 
