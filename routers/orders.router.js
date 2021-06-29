@@ -3,7 +3,7 @@ const ordersController = require("../controllers/orders.controller");
 const authenticate = require("../middleware/authenticate");
 const admin = require("../middleware/admin");
 
-router.post("/", authenticate, async (req, res) => {
+router.post("/",  authenticate, async (req, res) => {
     try {
         const body = req.body;
         res.json( await ordersController.createOrder(body));

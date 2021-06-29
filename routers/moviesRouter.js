@@ -46,9 +46,9 @@ router.get("/:id", async(req, res) => {
     }
 });
 
-router.get("/search/:query", async(req, res) => {
+router.post("/search", async(req, res) => {
     try {
-        let query = req.params.query;
+        let query = req.body.query;
         res.json(await moviesControllers.searchByTitle(query));
     } catch (err) {
         return res.status(500).json ({
