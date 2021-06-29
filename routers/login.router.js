@@ -12,9 +12,6 @@ router.post("/", async (req, res) => {
         let user = await userController.userEmail( emailCheck );
 
         res.status(200).json( {token, user})
-        {
-            throw new Error("Wrong user or password")
-        }
     } catch (error) {
         return res.status(500).json({
             message: error.message
