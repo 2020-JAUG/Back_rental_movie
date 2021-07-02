@@ -32,6 +32,10 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         defaultValue: false
       },
+      isAdmin: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+      },
       dateOfBirth: {
         type: Sequelize.DATE,
         require: true
@@ -50,7 +54,8 @@ module.exports = {
       },
       email: {
         type: Sequelize.STRING,
-        require: true
+        require: true,
+        unique: true
       },
       phone: {
         type: Sequelize.STRING,
