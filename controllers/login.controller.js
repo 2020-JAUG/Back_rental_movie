@@ -11,7 +11,18 @@ class LoginController {
         let user = await userController.userEmail(emailCheck);
 
         if(user == null) {
-            throw new Error("Wrong user or password");
+            var errorText = err.response.data.message;
+            console.log(errorText);
+            if (errorText.includes("email")){
+              setError(JSON.stringify("El email ya esta registrado."));
+
+            } else if (errorText.includes("phone")){
+              setError(JSON.stringify("El telefono ya esta registrado."));
+            }else{
+              setError(JSON.stringify(err.response.data.message));
+            }
+            return Error("Files not Found");
+            // throw new Error("Wrong user or password");
         }
 
         let password = user.password;
