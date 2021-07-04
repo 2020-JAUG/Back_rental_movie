@@ -47,11 +47,11 @@ router.post("/orderById", async(req, res) =>{
     }
 });
 
-router.put("/:id", authenticate,  async(req, res) => {
+router.put("/update", authenticate,  async(req, res) => {
     try {
-        const idOrder = req.params.id;
-        const body = req.body;
-        res.json( await ordersController.modifyOrder(body, idOrder));
+
+        const data = req.body;
+        res.json( await ordersController.modifyOrder( data ));
     } catch (error) {
         return res.status(500).json({
             message: error.message
@@ -59,10 +59,10 @@ router.put("/:id", authenticate,  async(req, res) => {
     }
 });
 
-router.delete("/:id", authenticate, async(req, res) => {
+router.post("/delete", authenticate, async(req, res) => {
     try {
-        const id = req.params.id;
-        res.json( await ordersController.removeOrder(id));
+        const data = req.body;
+        res.json( await ordersController.removeOrder(data));
     } catch (error) {
         return res.status(500).json({
             message: error.message

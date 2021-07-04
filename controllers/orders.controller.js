@@ -23,21 +23,24 @@ class Whis {
         return Order.findAll({ where: {userId: userId}})
     }
 
-    async modifyOrder(body, idOrder) {
+    async modifyOrder( data ) {
 
         return Order.update(
             //DAtos que cambiamos
-            // movieId: body.movieId
-            {  rentalDate: body.rentalDate, returnDate: body.returnDate },
+            // movieId: data.movieId,
+            {  rentalDate: data.rentalDate, returnDate: data.returnDate },
             //Donde
-            { where: {id: idOrder}}
+            { where: {id: data.orderId}},
+            // {movieId: data.movieId},
+            //Donde...
+            // {where: {id: data.id}}
 
         )
     }
 
-    async removeOrder(id) {
+    async removeOrder(data) {
 
-        return Order.destroy( {where: {id: id}});
+        return Order.destroy( {where: {id: data.id}});
     }
 }
 
