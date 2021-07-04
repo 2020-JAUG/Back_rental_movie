@@ -145,12 +145,11 @@ class Users {
         return User.findAll( {where: {cp: body.cp}} )
     }
 
-    async deleteUser(id){
+    async deleteUser(data){
 
-        return User.destroy({where: {id: id}});
+        return User.destroy( { where: { id: data.id } } );
     }
 }
-
 
 let usersController = new Users();
 module.exports = usersController;
