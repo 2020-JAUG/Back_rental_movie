@@ -59,7 +59,7 @@ router.put("/update", authenticate,  async(req, res) => {
     }
 });
 
-router.post("/delete", authenticate, async(req, res) => {
+router.post("/delete",  async(req, res) => {
     try {
         const data = req.body;
         res.json( await ordersController.removeOrder(data));
