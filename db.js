@@ -17,17 +17,6 @@ const sequelize = new Sequelize(
             idle: 10000
         },
     },
-
-function conectar(){
-    //Conexion con base de datos
-        $mysqli = new mysqli("eu-cdbr-west-01.cleardb.com:3306", "bdb4122922921c","8e221c14", "heroku_354ec26f7cf16ec");
-        if ( $mysqli == connect_errno) {
-         console.log("Falló la conexión con MySQL:  . $mysqli -> connect_errno .  . $mysqli->connect_error");
-        }
-    
-        return $mysqli;
-    
-    }
 );
 
 module.exports = sequelize.authenticate().then((db) => {
