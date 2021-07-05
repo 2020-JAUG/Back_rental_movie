@@ -2,10 +2,8 @@ const express = require("express");
 const db = require("./db.js");
 const app = express();
 const router = require("./router");
-const port = 3001;
+const port = process.env.PORT || 3001;
 const cors = require('cors');
-
-
 
 //Middleware
 app.use(cors());
