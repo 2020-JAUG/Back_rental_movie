@@ -4,6 +4,24 @@ const nodemailer = require('../config/nodemailerConfig.js');
 
 class Users {
 
+    async nameUser(name){
+        return User.findOne({
+            where: {name}
+        })
+    }
+
+    async userEmail(email){
+
+        let resultado = await User.findOne({
+            where: { email }
+        })
+        return resultado;
+    }
+
+    async findAllUsers() {
+        return User.findAll();
+    }
+
     async createUser(user) {
         user.password = await bcrypt.hash(user.password, 10);
 
@@ -53,22 +71,6 @@ class Users {
             let resultado = "La cuenta se ha activado correctamente. Ya puedes ingresar a la plataforma y alquilar tu próxima película.";
             
             return resultado;
-    }
-
-    async nameUser(name){
-        return User.findOne({
-            where: {name}
-        })
-    }
-
-    async userEmail(email){
-        return User.findOne({
-            where: {email}
-        })
-    }
-
-    async findAllUsers() {
-        return User.findAll();
     }
 
     async modifyUser(body) {
