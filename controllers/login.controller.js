@@ -18,14 +18,14 @@ class LoginController {
 
       let verificar = await bcrypt.compare(passwordCheck,password);
 
-        if(!verify){
+        if(!verificar){
           throw new Error('Wrong user or password');
         }
         if(!verificar) {
             throw new Error("Wrong user or password");
         }
 
-        if (!customer.isActive) {
+        if (!user.isActive) {
           throw new Error("The account is not active. Please, check your email and activate your account.");
         }
 
