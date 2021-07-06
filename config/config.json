@@ -15,10 +15,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "bdb4122922921c",
+    "password": "8e221c14",
+    "database": "heroku_354ec26f7cf16ec",
+    "port":"3306",
     "dialect": "mysql"
   }
 }
