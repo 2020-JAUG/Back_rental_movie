@@ -21,7 +21,7 @@ module.exports.sendConfirmationEmail = (name, email, confirmationCode) => {
         <h2>Hola ${name},</h2>
         <p>Gracias por registrarte en Movie Retro,
         por favor confirma tu email haciendo click en el siguiente enlace.</p>
-        <a href=http://localhost:3001/users/confirm/${confirmationCode}> Activar cuenta.</a>
+        <a href=https://back-movie.herokuapp.com/users/confirm/${confirmationCode}> Activar cuenta.</a>
         </div>`,
   }).catch(err => console.log(err));
 };
