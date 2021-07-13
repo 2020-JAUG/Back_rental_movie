@@ -47,19 +47,18 @@ class Users {
         token: token
     }
 
-    let usuario = await User.create(user);
+        let usuario = await User.create(user);
 
-    //Llamamos a la funcion para enviar el correo al usuario.
-    await nodemailer.sendConfirmationEmail(user.name, user.email, token);
+        //Llamamos a la funcion para enviar el correo al usuario.
+        await nodemailer.sendConfirmationEmail(user.name, user.email, token);
 
-    return usuario;
+        return usuario;
     }
 
     //Para activar la cuenta de usuario. Recibiendo el token y id
     async updateActive(token) {
 
             let user = await User.findOne({ where: { token } });
-            console.log(user, 'usuario');
             let usuario = await User.update(
               //Datos que cambiamos
               {
