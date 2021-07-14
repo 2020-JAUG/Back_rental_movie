@@ -13,7 +13,6 @@ class LoginController {
         if(user == null) {
           throw new Error("Wrong user or password");
             // var errorText = err.response.data.message;
-            // console.log(errorText);
             // if (errorText.includes("email")){
             //   setError(JSON.stringify("El email ya esta registrado."));
 

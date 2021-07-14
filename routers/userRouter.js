@@ -73,7 +73,6 @@ router.post('/removeuser', authenticate, async (req, res) => {
     try {
         const data = req.body;
         res.json(await usersControllers.deleteUser(data));
-        console.log('dataBack', res.data);
     }catch (err) {
         return res.status(500).json({
             message: err.message
